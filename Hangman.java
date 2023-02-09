@@ -108,15 +108,11 @@ public class Hangman {
                 //Word: 
                 if (random == ""){
                     random = randomWord();
-                    // word = word + random;
-                    // System.out.println(word);
                     System.out.print(word);
                     
                 } else {
                     System.out.print(word);
                 }
-                
-                // System.out.println(random);
     
                 //Print initial underscore placeholders where letters will be filled in
                 if (userGuess == ""){
@@ -152,26 +148,27 @@ public class Hangman {
                 if (checkGuess(userGuess, random) == false){
                     userWrongGuesses.add(userGuess);
                     missCount++;                    
-                }            
-    
-            }
-            
-            
+                }               
+            }   
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
+    
+    
     // functions
 
+
+    // Access Random Word
     public static String randomWord(){
         // random number identifying word in array
         int wordNumber = (int)(Math.random()*64);
         return words[wordNumber]; 
     }
 
+    // Check User Guess
     public static boolean checkGuess(String letter, String word){
         
         // find the index of the word with the guessed letter
@@ -182,6 +179,7 @@ public class Hangman {
         return false;   
     }
 
+    // Printing of initial underscore placeholders for word to guess
     public static void printPlaceholders(){
         for (int i = 0; i < random.length(); i++){
             wordPlaceholder.add("_ ");
@@ -192,6 +190,7 @@ public class Hangman {
         
     }
 
+    // Update Placeholders after user guess
     public static void updatePlaceholders(String letter){
 
         // create array for guessed letters' indexed locations
@@ -226,17 +225,7 @@ public class Hangman {
         }
         System.out.println("\n");
 
-
     }
-
-
-    
-
-    
-        
-
-
-
 
 }
 
